@@ -1,9 +1,8 @@
 .footer {
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  max-height: 60px;
+  height: 400px;
   background-color: red;
   display: flex;
   align-items: center;
@@ -15,3 +14,46 @@
   color: #333;
   text-decoration: none;
 }
+
+
+.footer-column {
+  position: flex;
+  text-align: left;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+}
+
+.footer-column:not(:last-child) {
+  margin-right: 100px; /* Add margin-right to create space between columns */
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+.footer h4 {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.footer p {
+  color: white;
+  margin: 5px 0;
+}
+
+.terms-link,
+.privacy-link {
+  color: blue;
+  text-decoration: underline;
+  /* Add more styles as needed */
+}
+
+
+
+

@@ -19,11 +19,11 @@ const App = () => {
 
   return (
     <div className={`app-container ${showModal ? 'modal-open' : ''}`}>
-      <Sidebar />
+      <Header handleShowModal={handleShowModal} />
       <div className="main-content">
-        <Header handleShowModal={handleShowModal} />
-        <Footer />
       </div>
+      <Footer />
+
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-container">

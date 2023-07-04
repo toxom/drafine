@@ -70,3 +70,9 @@ body,
   background-color: #0056b3;
 }
 
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Set a minimum height to occupy the entire viewport */
+}
+

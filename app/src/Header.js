@@ -7,18 +7,6 @@ import fasie from './assets/fasie.png';
 
 
 
-const ImageContainer = styled.div`
-  max-width: 300px;
-  margin-top: 40px;
-  margin-left: 30px;
-
-  &:hover {
-    background-color: darkcyan;
-    color: white;
-  }
-`;
-
-
 const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -221,6 +209,7 @@ const Header = () => {
 };
 
 
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -236,6 +225,17 @@ const fadeOut = keyframes`
   }
   to {
     opacity: 0;
+  }
+`;
+
+const ImageContainer = styled.div`
+  max-width: 300px;
+  margin-top: 40px;
+  margin-left: 30px;
+
+  &:hover {
+    background-color: darkcyan;
+    color: white;
   }
 `;
 
