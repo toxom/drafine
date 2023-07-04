@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 const Landing = ({ showModal }) => {
-  const phrases = ["ITest.", "ta"];
+  const phrases = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium, dui in luctus congue, enim sem placerat justo, vel aliquet leo lectus ac ipsum. Nulla facilisi. Proin ultrices, erat vel aliquam venenatis, tellus mi consequat est, eget laoreet ipsum elit vel risus. Phasellus id est non justo aliquam efficitur. Suspendisse potenti. Sed id gravida lectus. Nunc dictum posuere odio, ac tempor ipsum scelerisque vel. Cras in arcu sit amet turpis feugiat efficitur.", "Pellentesque tristique viverra sapien sed ultricies. Sed et placerat metus. Mauris in nisl libero. Morbi eu semper leo. Fusce at dui sed massa consequat tristique. Sed vestibulum eleifend posuere. Integer sollicitudin scelerisque lorem, ut pharetra nisi bibendum ut. Aliquam vitae eleifend ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed ullamcorper, urna sit amet semper dignissim, mauris elit pharetra elit, nec rhoncus arcu ex eu ex. Fusce dignissim mauris non sem congue aliquam. Phasellus quis dui aliquam, feugiat enim eu, tempus turpis. Ut vel ligula ac quam faucibus dictum. Donec interdum ultricies arcu, id bibendum risus iaculis ut."];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [showText, setShowText] = useState(false);
   const [reverseAnimation, setReverseAnimation] = useState(false);
@@ -73,7 +73,8 @@ const LandingContainer = styled.div`
 const TextContainer = styled.div`
   font-size: 60px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
+  margin-left: 20px;
   justify-content: center;
   color: white;
   margin-top: ${({ isClicked }) => (isClicked ? '100px' : '80px')}; /* Update the margin-top */
@@ -114,7 +115,7 @@ const TypingAnimation = styled.span`
   overflow: hidden;
   white-space: nowrap;
   animation: ${({ showText, reverse }) =>
-    showText ? (reverse ? reverseTypingAnimation : typingAnimation) : 'none'} 3s steps(40, end) both;
+    showText ? (reverse ? reverseTypingAnimation : typingAnimation) : 'none'} 0.5s steps(400, end) both;
 `;
 
 export default Landing;
