@@ -4,6 +4,18 @@ import RegistrationForm from './RegistrationForm';
 import corpart1 from './assets/corpart1.svg';
 import spbstu from './assets/spbstu.png';
 import fasie from './assets/fasie.png';
+import Banner from './Banner';
+import Footer from './Footer';
+import './App.css';
+import Landing from './pages/Landing';
+import Customers from './pages/Customers';
+import Signin from './pages/Signin';
+import Products from './pages/Products';
+import Resources from './pages/Resources';
+
+
+
+
 
 
 
@@ -52,7 +64,6 @@ const Header = () => {
       isHovered={isHovered}
       isClicked={isClicked}
       onMouseEnter={handleHeaderHover}
-      onMouseLeave={handleHeaderLeave}
       onClick={handleHeaderClick}
     >
       <div>
@@ -108,65 +119,37 @@ const Header = () => {
         </div>
       </div>
       {expandedSection && (
-        <ExpandedSection expanded={expandedSection} onMouseLeave={handleSectionLeave}>
+        <ExpandedSection expanded={expandedSection}>
           {expandedSection === 'sign-in' && (
             <>
-            <SignInExpandedContent>
-              <TextColumn>
-                Join our email list and try our apps.
-              </TextColumn>
-              <TextColumn>
-                <img src={corpart1} alt="Corpart 1" />
-              </TextColumn>
-                <RegistrationForm />
-            </SignInExpandedContent>
+            <SigninExpandedContent>
+
+              <Signin />
+
+            </SigninExpandedContent>
             </>
           )}
 
-          
+          {expandedSection === 'company' && (
+            <>
+            <CompanyExpandedContent>
+              <Landing />
+            </CompanyExpandedContent>
+            </>
+          )}
 
           {expandedSection === 'products' && (
             <>
             <ProductsExpandedContent>
-              <TextColumn>
-                Join our email list and try our apps.
-                <ListContainer>
-                  <ListTitle>Our Products:</ListTitle>
-                    <ul>
-                      <li>Product 1</li>
-                      <li>Product 2</li>
-                      <li>Product 3</li>
-                    </ul>
-                  </ListContainer>
-              </TextColumn>
-              <TextColumn>
-                <img src={corpart1} alt="Corpart 1" />
-              </TextColumn>
-              <RegistrationForm />
+              <Products />
             </ProductsExpandedContent>
-
-
-
-
             </>
           )}
 
           {expandedSection === 'customers' && (
             <>
             <CustomersExpandedContent>
-              <ImageContainer>
-                <ImageContainer>
-                  <img src={spbstu} alt="spbstu" style={{ maxWidth: '100%', height: 'auto' }} />
-                </ImageContainer>
-                <ImageContainer>
-                  <img src={fasie} alt="fasie" style={{ maxWidth: '100%', height: 'auto' }} />
-                </ImageContainer>
-              </ImageContainer>
-              
-              <TextColumn>
-                <img src={corpart1} alt="Corpart 1" />
-              </TextColumn>
-              <RegistrationForm />
+              <Customers />
             </CustomersExpandedContent>
 
             </>
@@ -174,13 +157,7 @@ const Header = () => {
           {expandedSection === 'resources' && (
             <>
             <ResourcesExpandedContent>
-              <TextColumn>
-                Yeah, we have customers.
-              </TextColumn>
-              <TextColumn>
-                <img src={corpart1} alt="Corpart 1" />
-              </TextColumn>
-              <RegistrationForm />
+              <Resources />
             </ResourcesExpandedContent>
 
             </>
@@ -188,9 +165,9 @@ const Header = () => {
           {expandedSection === 'about' && (
             <>
             <AboutExpandedContent>
-              <TextColumn>
-                Yeah, we have customers.
-              </TextColumn>
+              <Banner />}
+              <Customers />}
+
 
               <TextColumn>
                 <img src={corpart1} alt="Corpart 1" />
@@ -240,17 +217,28 @@ const ImageContainer = styled.div`
 `;
 
 const StyledHeader = styled.header`
-  background-color: black;
+  background-color: rgb(231, 231, 231);
   align-items: center;
-  height: 70px;
+  height: 40px;
   width: auto;
   padding: 20px 20px 40px 20px;
   transition: height 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${({ isHovered }) => (isHovered ? 'white' : 'white')};
+    background-color: ${({ isHovered }) => (isHovered ? 'rgb(243, 243, 243)' : 'rgb(243, 243, 243)')};
     transition: height 0.3s ease-in-out;
   }
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px */
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    
+  }
+
+
+  
 `;
 
 const StyledLogo = styled.h1`
@@ -270,11 +258,21 @@ const TextColumn = styled.div`
   margin-top: 20px;
 `;
 
+const StyledLinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px */
+    display: none; /* Hide the link container on smaller screens */
+  }
+`;
+
 
 const StyledLink = styled.a`
   background-color: ${({ selected }) => (selected ? 'darkviolet' : 'transparent')};
   color: ${({ selected }) => (selected ? 'white' : 'gray')};
-  padding: 8px 16px;
+  padding: 0px 16px;
   border: 2px solid ${({ selected }) => (selected ? 'black' : 'transparent')};
   box-shadow: ${({ selected }) => (selected ? '5px 5px 0px 0px rgba(0, 0, 0, 0.2);' : '0px 0px 0px 0px rgba(0, 0, 0, 0.2);')};
   border-radius: 0px;
@@ -290,6 +288,21 @@ const StyledLink = styled.a`
     background-color: darkcyan;
     color: white;
   }
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px */
+    display: block; /* Change display to block to stack the links */
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+};
+
+const LinkContainer = ({ children }) => {
+  return <StyledLinkContainer>{children}</StyledLinkContainer>;
+};
+
+export { LinkContainer, StyledLink };
+
 `;
 
 const StyledSignInLink = styled(StyledLink)`
@@ -306,12 +319,9 @@ const StyledCompanyLink = styled(StyledLink)`
 `;
 
 const ExpandedSection = styled.section`
-  height: 500px;
-  width: auto;
-  margin-top: 25px;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 20px;
+  height: 800px;
+  width: 99%;
+  margin-top: 15px;
   opacity: ${({ expanded }) => (expanded ? '1' : '0')};
   display: ${({ expanded }) => (expanded ? 'flex' : 'none')};
   animation: ${({ expanded }) => (expanded ? fadeIn : fadeOut)} 0.3s ease-in-out;
@@ -320,19 +330,33 @@ const ExpandedSection = styled.section`
   transition: opacity 0.3s ease-in-out;
   //box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 0.2);
 
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px */
+    height: 600px;
+  }
+
+  @media (max-width: 480px) {
+    /* Styles for screens up to 480px */
+    height: 400px;
+  }
+
 `;
 
 
 const ExpandedContent = styled.section`
   display: flex;
-
-  background-color: red;
-  border: 1px solid black;
   border-radius: 20px;
-
-  height: 100%;
+  background-color: red;
+  height: 103%;
   font-size: 24px;
   transition: height 0.3s ease-in-out;
+`;
+
+
+const CompanyExpandedContent = styled(ExpandedContent)`
+  background-color: lightblue;
+  width: 100%;
+
 `;
 
 const ProductsExpandedContent = styled(ExpandedContent)`
@@ -362,7 +386,8 @@ const AboutExpandedContent = styled(ExpandedContent)`
 
 
 
-const SignInExpandedContent = styled(ExpandedContent)`
+
+const SigninExpandedContent = styled(ExpandedContent)`
   background-color: green;
   width: 100%;
 

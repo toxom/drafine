@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const Banner = ({ showModal }) => {
-  const phrases = ["Invest to yourself. Invest to your goals.", "Invest to your Dreams."];
+const Landing = ({ showModal }) => {
+  const phrases = ["ITest.", "ta"];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [showText, setShowText] = useState(false);
   const [reverseAnimation, setReverseAnimation] = useState(false);
@@ -33,39 +33,41 @@ const Banner = ({ showModal }) => {
     return () => clearTimeout(timeout);
   }, [currentPhraseIndex]);
 
-  const handleBannerClick = () => {
+  const handleLandingClick = () => {
     setIsClicked(!isClicked);
   };
 
   if (showModal) {
-    return null; // Hide the Banner component when showModal is true
+    return null; // Hide the Landing component when showModal is true
   }
 
   return (
-    <BannerContainer onClick={handleBannerClick} isClicked={isClicked} showModal={showModal}>
+    <LandingContainer onClick={handleLandingClick} isClicked={isClicked} showModal={showModal}>
       <TextContainer isClicked={isClicked}>
         <TypingAnimation showText={showText} reverse={reverseAnimation}>
           {phrases[currentPhraseIndex]}
         </TypingAnimation>
       </TextContainer>
-    </BannerContainer>
+    </LandingContainer>
   );
 };
 
 
 
-const BannerContainer = styled.div`
-  background-color: ${({ isClicked, isHeaderHovered }) => (isClicked || isHeaderHovered ? 'transparent' : 'darkviolet')};
+const LandingContainer = styled.div`
+  background-color: ${({ isClicked, isHeaderHovered }) => (isClicked || isHeaderHovered ? 'green' : 'darkviolet')};
   padding: 20px;
   text-align: center;
   height: 100%;
-  width: 50%;
+  border: 1px solid;
+  border-radius: 20px;
+  width: 100%;
   //height: ${({ isClicked }) => (isClicked ? '400px' : '300px')};
   transition: height 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transform: translateY(${({ showModal }) => (showModal ? '100px' : '0')});
+  transform: translateY(${({ showModal }) => (showModal ? '0' : '0')});
   cursor: pointer;
-`;
 
+`;
 
 
 const TextContainer = styled.div`
@@ -115,4 +117,4 @@ const TypingAnimation = styled.span`
     showText ? (reverse ? reverseTypingAnimation : typingAnimation) : 'none'} 3s steps(40, end) both;
 `;
 
-export default Banner;
+export default Landing;

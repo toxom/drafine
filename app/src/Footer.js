@@ -14,47 +14,45 @@ const Footer = () => {
           </div>
           <div className="footer-column">
             <h4>Products</h4>
-            <p>Home</p>
-            <p>Products</p>
-            <p>Services</p>
+            <p>fab.ibetican</p>
+            <p>Macards</p>
           </div>
           <div className="footer-column">
-            <h4>Products</h4>
-            <p>Home</p>
-            <p>Products</p>
-            <p>Services</p>
+            <h4>Customers</h4>
+            <p>Polytech Fablab</p>
+            <p>FASIE</p>
           </div>
           <div className="footer-column">
-            <h4>Products</h4>
-            <p>Home</p>
-            <p>Products</p>
-            <p>Services</p>
+            <h4>Resources</h4>
+            <p>Instructions</p>
+            <p>Articles</p>
+            <p>Blog</p>
           </div>
         </div>
         <div className="footer-row">
           <div className="footer-column">
-            <h4>Product</h4>
+            <h4>About</h4>
             <p>Home</p>
             <p>Products</p>
             <p>Services</p>
           </div>
-          <div className="footer-column">
-            <h4>Resources</h4>
-            <p>Home</p>
-            <p>Products</p>
-            <p>Services</p>
-          </div>
+
           <div className="footer-column">
             <h4>Support</h4>
-            <p>Home</p>
-            <p>Products</p>
-            <p>Services</p>
-          </div>
-          <div className="footer-column">
-            <h4>Support</h4>
-            <p>Help Center</p>
             <p>Contact</p>
-            <p>Privacy</p>
+            <p>FAQ</p>
+          </div>
+          <div className="footer-column">
+            <h4>Developers</h4>
+            <p>Get Started</p>
+            <p>Guides</p>
+            <p>Forum</p>
+          </div>
+          <div className="footer-column">
+            <h4>Follow Us</h4>
+            <p>VK.com</p>
+            <p>Telegram</p>
+            <p>Discord</p>
           </div>
         </div>
         <div className="footer-row">

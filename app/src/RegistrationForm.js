@@ -51,10 +51,11 @@ const RegistrationForm = () => {
 
 const FormContainer = styled.form`
   display: flex;
+  width: 500px;
   flex-direction: column;
   align-items: flex; /* Updated value */
   justify-content: flex; /* Updated value */
-  background-color: transparent;
+  background-color: red;
   padding: 20px;
   border-radius: 8px;
 `;

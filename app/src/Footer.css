@@ -2,17 +2,22 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 400px;
-  background-color: red;
+  height: flex;
+  background-color: rgb(231, 231, 231);
   display: flex;
   align-items: center;
   justify-content: center;
+  //border-top-color: black;
 }
+
+
 
 .footer a {
   margin: 0 10px;
-  color: #333;
+  color: lightslategray;
   text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
 }
 
 
@@ -25,9 +30,24 @@
   margin-bottom: 10px;
 }
 
-.footer-column:not(:last-child) {
-  margin-right: 100px; /* Add margin-right to create space between columns */
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px */
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
 }
+
+.footer-column:not(:last-child) {
+  margin-right: 10px; /* Add margin-right to create space between columns */
+}
+
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px */
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
+}
+
 
 .footer-row {
   display: flex;
@@ -36,21 +56,34 @@
   margin-top: 20px;
 }
 
+@media (max-width: 768px) {
+  /* Styles for screens up to 768px */
+  flex-direction: column;
+  align-items: flex-start;
+  height: auto;
+}
+
 
 .footer h4 {
-  color: white;
+  color: black;
   margin-bottom: 5px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
 }
 
 .footer p {
-  color: white;
+  color: black;
   margin: 5px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+
 }
 
 .terms-link,
 .privacy-link {
   color: blue;
   text-decoration: underline;
+  
   /* Add more styles as needed */
 }
 

@@ -1,8 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import corpart1 from '../assets/corpart1.svg';
+import spbstu from '../assets/spbstu.png';
+import fasie from '../assets/fasie.png';
+import RegistrationForm from '../RegistrationForm';
 
-const Banner = ({ showModal }) => {
-  const phrases = ["Invest to yourself. Invest to your goals.", "Invest to your Dreams."];
+
+const ImageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 20px;
+`;
+
+const Signin = ({ showModal }) => {
+  const phrases = ["Sign in to follow us and try our products.", "More information coming."];
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [showText, setShowText] = useState(false);
   const [reverseAnimation, setReverseAnimation] = useState(false);
@@ -33,37 +45,49 @@ const Banner = ({ showModal }) => {
     return () => clearTimeout(timeout);
   }, [currentPhraseIndex]);
 
-  const handleBannerClick = () => {
+  const handleSigninClick = () => {
     setIsClicked(!isClicked);
   };
 
   if (showModal) {
-    return null; // Hide the Banner component when showModal is true
+    return null; // Hide the Signin component when showModal is true
   }
 
   return (
-    <BannerContainer onClick={handleBannerClick} isClicked={isClicked} showModal={showModal}>
-      <TextContainer isClicked={isClicked}>
-        <TypingAnimation showText={showText} reverse={reverseAnimation}>
-          {phrases[currentPhraseIndex]}
-        </TypingAnimation>
-      </TextContainer>
-    </BannerContainer>
+  <SigninContainer onClick={handleSigninClick} isClicked={isClicked} showModal={showModal}>
+    <TextContainer isClicked={isClicked}>
+      <TypingAnimation showText={showText} reverse={reverseAnimation}>
+        {phrases[currentPhraseIndex]}
+      </TypingAnimation>
+      <RegistrationForm />
+
+    </TextContainer>
+
+
+
+  </SigninContainer>
   );
 };
 
 
 
-const BannerContainer = styled.div`
-  background-color: ${({ isClicked, isHeaderHovered }) => (isClicked || isHeaderHovered ? 'transparent' : 'darkviolet')};
+
+const SigninContainer = styled.div`
+  display: flex;
+  background-color: ${({ isClicked, isHeaderHovered }) => (isClicked || isHeaderHovered ? 'green' : 'black')};
   padding: 20px;
+  width: 100%;
   text-align: center;
   height: 100%;
-  width: 50%;
+  border: 1px solid;
+  border-radius: 20px;
   //height: ${({ isClicked }) => (isClicked ? '400px' : '300px')};
   transition: height 0.3s ease-in-out, transform 0.3s ease-in-out;
-  transform: translateY(${({ showModal }) => (showModal ? '100px' : '0')});
+  transform: translateY(${({ showModal }) => (showModal ? '0' : '0')});
   cursor: pointer;
+  user-select: none;
+
+
 `;
 
 
@@ -71,11 +95,27 @@ const BannerContainer = styled.div`
 const TextContainer = styled.div`
   font-size: 60px;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   justify-content: center;
+  margin-bottom: 80px;
+  margin-left: 20px;
   color: white;
-  margin-top: ${({ isClicked }) => (isClicked ? '100px' : '80px')}; /* Update the margin-top */
+  margin-top: ${({ isClicked }) => (isClicked ? '0px' : '0px')}; /* Update the margin-top */
   user-select: none;
+
+  &:hover {
+    //background-color: ${({ isHovered }) => (isHovered ? 'rgb(243, 243, 243)' : 'rgb(243, 243, 243)')};
+    //transition: height 0.3s ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px */
+    font-size: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+
 `;
 
 
@@ -112,7 +152,7 @@ const TypingAnimation = styled.span`
   overflow: hidden;
   white-space: nowrap;
   animation: ${({ showText, reverse }) =>
-    showText ? (reverse ? reverseTypingAnimation : typingAnimation) : 'none'} 3s steps(40, end) both;
+    showText ? (reverse ? reverseTypingAnimation : typingAnimation) : 'none'} 1s steps(10, end) both;
 `;
 
-export default Banner;
+export default Signin;
